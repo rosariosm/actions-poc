@@ -1,9 +1,14 @@
 {
+  "type": "module",
   "scripts": {
     "start": "ts-node index.ts",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "husky": "^9.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
