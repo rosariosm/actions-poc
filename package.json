@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "ts-node index.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
