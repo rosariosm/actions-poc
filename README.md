@@ -1,12 +1,11 @@
-# CI Cheks PoC with TypeScript, MegaLinter, Commitlint, and Semantic Release
+# CI Cheks PoC with TypeScript, Commitlint, and Semantic Release
 
 This is a super simple proof-of-concept repository to demonstrate a basic CI pipeline using:
 
-- ✅ [TypeScript](https://www.typescriptlang.org/)
-- ✅ [MegaLinter](https://github.com/oxsecurity/megalinter) (for code quality)
-- ✅ [Commitlint](https://commitlint.js.org/#/) (for enforcing Conventional Commits)
-- ✅ [Semantic Release](https://github.com/semantic-release/semantic-release) (for automated versioning and changelogs)
-- ✅ [GitHub Actions](https://docs.github.com/en/actions) (for workflow automation)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Commitlint](https://commitlint.js.org/#/) (for enforcing Conventional Commits)
+- [Semantic Release](https://github.com/semantic-release/semantic-release) (for automated versioning and changelogs)
+- [GitHub Actions](https://docs.github.com/en/actions) (for workflow automation)
 
 ---
 
@@ -15,7 +14,6 @@ This is a super simple proof-of-concept repository to demonstrate a basic CI pip
 - `index.ts`: Minimal TypeScript entry point
 - `.github/workflows/`: CI/CD automation
 - `.commitlintrc.yml`: Commitlint config
-- `.mega-linter.yml`: MegaLinter config
 - `tsconfig.json`: TypeScript settings
 
 ---
@@ -23,7 +21,6 @@ This is a super simple proof-of-concept repository to demonstrate a basic CI pip
 ## 🚀 Getting Started
 
 This project uses [**fnm**](https://github.com/Schniz/fnm) for Node.js version management via the `.node-version` file.
-
 
 ```bash
 # Make sure you're using right node version
@@ -35,15 +32,6 @@ npm install
 # Run the app
 npm start
 
-```
-
-## 🧪 Linting & CI
-
-MegaLinter and tsc --noEmit are used during CI to ensure code quality and type correctness.
-
-```bash
-# Run MegaLinter locally (optional)
-npx mega-linter-runner
 ```
 
 ## 📦 Commit Message Format
@@ -58,6 +46,22 @@ git commit -m "fix(auth): correct token expiration"
 ```
 
 ### ❌ Invalid Example
+
 ```bash
 git commit -m "foo: this will fail"
 ```
+
+## 📝 Why PR Titles Matter
+
+GitHub now uses **pull request titles** as the default commit message when using **Squash and Merge**:
+
+> “When squash merging a pull request, the default commit message is now the pull request title.”  
+> 🔗 [GitHub Changelog – Default to PR titles for squash merge commit messages](https://github.blog/changelog/2022-05-11-default-to-pr-titles-for-squash-merge-commit-messages/)
+
+This is why this project:
+
+- Enforces [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for PR titles
+- Uses a GitHub Action to auto-format PR titles if needed
+- Uses [`semantic-release`](https://github.com/semantic-release/semantic-release) to automate changelogs and versioning
+
+✅ Having properly formatted PR titles = clean git history + automated releases!
